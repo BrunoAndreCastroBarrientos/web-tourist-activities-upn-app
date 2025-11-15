@@ -93,6 +93,7 @@ body {
   padding: 0.75rem 1rem;
   border-radius: 1.25rem;
   box-shadow: var(--tb-shadow-soft);
+  background: #ffffff;
 }
 
 /* Secciones */
@@ -110,7 +111,7 @@ body {
   max-width: 32rem;
 }
 
-/* Destinos */
+/* Destinos / Actividades */
 .card-destino img,
 .card-actividad img {
   object-fit: cover;
@@ -216,6 +217,42 @@ body {
 
 .navbar-light .navbar-nav .nav-link:hover {
   color: var(--tb-primary-dark);
+}
+
+/* Detalle de actividad */
+.actividad-detalle-main {
+  background: radial-gradient(circle at top left, #e0f2fe, #f9fafb 55%, #eff6ff);
+}
+
+.activity-detail-hero {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: var(--tb-shadow-soft);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  overflow: hidden;
+}
+
+.activity-detail-img-main img {
+  object-fit: cover;
+  width: 100%;
+  height: 260px;
+}
+
+.activity-detail-meta span {
+  font-size: 0.9rem;
+  color: var(--tb-muted);
+}
+
+.activity-detail-badge {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.activity-detail-aside-card {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.25);
 }
 
 /* Responsivo */

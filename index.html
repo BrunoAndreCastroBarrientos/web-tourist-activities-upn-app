@@ -91,9 +91,10 @@
                 </div>
               </form>
               <p class="small text-muted mt-2 mb-0">
-                🔍 Búsqueda de ejemplo: el resultado se muestra con JavaScript en esta misma página.
+                🔍 Búsqueda de ejemplo: se listan actividades ficticias y puedes ir al detalle con “Ver detalles”.
               </p>
 
+              <!-- Aquí JS renderiza tarjetas de resultados -->
               <div id="search-results" class="mt-3"></div>
             </div>
           </div>
@@ -257,9 +258,10 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="fw-semibold text-primary">Desde US$ 35</span>
-                  <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">
+                  <a href="#" class="btn btn-outline-primary btn-sm rounded-pill"
+                     data-actividad-id="citytour-cusco">
                     Ver detalles
-                  </button>
+                  </a>
                 </div>
               </div>
             </article>
@@ -283,9 +285,10 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="fw-semibold text-primary">Desde US$ 49</span>
-                  <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">
+                  <a href="#" class="btn btn-outline-primary btn-sm rounded-pill"
+                     data-actividad-id="ruta-gastronomica">
                     Ver detalles
-                  </button>
+                  </a>
                 </div>
               </div>
             </article>
@@ -309,9 +312,10 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="fw-semibold text-primary">Desde US$ 65</span>
-                  <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">
+                  <a href="#" class="btn btn-outline-primary btn-sm rounded-pill"
+                     data-actividad-id="trekking-mirador">
                     Ver detalles
-                  </button>
+                  </a>
                 </div>
               </div>
             </article>
@@ -332,17 +336,17 @@
               </p>
             </div>
 
-            <form class="card border-0 shadow-sm rounded-4 p-3 p-md-4">
+            <form class="card border-0 shadow-sm rounded-4 p-3 p-md-4" id="login-form">
               <div class="mb-3">
-                <label for="email" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com" />
+                <label for="login-email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="login-email" placeholder="tucorreo@ejemplo.com" />
               </div>
               <div class="mb-3">
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password" placeholder="••••••••" />
+                <label for="login-password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="login-password" placeholder="••••••••" />
               </div>
               <button type="submit" class="btn btn-gradient w-100 rounded-pill">Ingresar</button>
-              <p class="small text-muted mt-2 mb-0">
+              <p class="small text-muted mt-2 mb-0" id="login-feedback">
                 *En un proyecto real, este formulario se conectaría con un backend de autenticación.
               </p>
             </form>
@@ -356,7 +360,7 @@
               </p>
             </div>
 
-            <form class="card border-0 shadow-sm rounded-4 p-3 p-md-4">
+            <form class="card border-0 shadow-sm rounded-4 p-3 p-md-4" id="contact-form">
               <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre completo</label>
                 <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" />
@@ -365,7 +369,10 @@
                 <label for="mensaje" class="form-label">Mensaje</label>
                 <textarea class="form-control" id="mensaje" rows="4" placeholder="Cuéntanos qué necesitas…"></textarea>
               </div>
-              <button type="submit" class="btn btn-outline-secondary w-100 rounded-pill">Enviar mensaje</button>
+              <button type="submit" class="btn btn-outline-secondary w-100 rounded-pill">
+                Enviar mensaje
+              </button>
+              <p class="small text-muted mt-2 mb-0" id="contact-feedback"></p>
             </form>
           </div>
         </div>
