@@ -1,0 +1,239 @@
+/* Fuente base y colores */
+:root {
+  --tb-bg: #f3f4f6;
+  --tb-bg-alt: #eef2ff;
+  --tb-primary: #0ea5e9;
+  --tb-primary-dark: #0284c7;
+  --tb-accent: #22c55e;
+  --tb-text: #0f172a;
+  --tb-muted: #6b7280;
+  --tb-card: #ffffff;
+  --tb-shadow-soft: 0 16px 40px rgba(15, 23, 42, 0.12);
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--tb-bg);
+  color: var(--tb-text);
+}
+
+/* Logo */
+.logo-icon {
+  font-size: 1.4rem;
+}
+
+/* HERO / LANDING */
+.hero {
+  background: radial-gradient(circle at top left, #e0f2fe, #f9fafb 55%, #eff6ff);
+}
+
+.hero-title {
+  font-size: clamp(2.25rem, 3vw, 2.7rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero-title span {
+  color: var(--tb-primary-dark);
+}
+
+.hero-subtitle {
+  color: var(--tb-muted);
+  max-width: 32rem;
+}
+
+/* Search card */
+.search-card {
+  border-radius: 1.5rem;
+  box-shadow: var(--tb-shadow-soft);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.form-label-small {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+/* Botón degradado */
+.btn-gradient {
+  background: linear-gradient(135deg, #0ea5e9, #22c55e);
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.btn-gradient:hover {
+  filter: brightness(0.98);
+}
+
+/* HERO visual lado derecho */
+.hero-visual {
+  min-height: 260px;
+}
+
+.hero-photo-main {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-photo-secondary {
+  position: absolute;
+  right: 8%;
+  bottom: -8%;
+  width: 55%;
+}
+
+.hero-badge-card {
+  position: absolute;
+  top: -10%;
+  right: 10%;
+  padding: 0.75rem 1rem;
+  border-radius: 1.25rem;
+  box-shadow: var(--tb-shadow-soft);
+}
+
+/* Secciones */
+.section-alt {
+  background-color: var(--tb-bg-alt);
+}
+
+.section-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.section-subtitle {
+  color: var(--tb-muted);
+  max-width: 32rem;
+}
+
+/* Destinos */
+.card-destino img,
+.card-actividad img {
+  object-fit: cover;
+  height: 200px;
+}
+
+.destino-tag {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 0.9rem;
+  background-color: rgba(15, 23, 42, 0.92);
+  color: #e5e7eb;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+}
+
+.destino-tag-alt {
+  background-color: rgba(14, 165, 233, 0.95);
+}
+
+/* Cards animadas */
+.card-destino img,
+.card-actividad img {
+  transition: transform 0.35s ease;
+}
+
+.card-destino:hover img,
+.card-actividad:hover img {
+  transform: scale(1.06);
+}
+
+/* Steps */
+.step-card {
+  background-color: #ffffff;
+  border-radius: 1.25rem;
+  padding: 1.4rem 1.3rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.step-icon {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(14, 165, 233, 0.1);
+  color: var(--tb-primary-dark);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Actividades */
+.actividad-badge {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+}
+
+/* Footer */
+.footer {
+  background: #020617;
+  color: #e5e7eb;
+}
+
+.footer a {
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #e5e7eb;
+}
+
+/* Dashboard */
+.dashboard-body {
+  background: radial-gradient(circle at top left, #020617, #020617 55%, #020617);
+  color: #e5e7eb;
+}
+
+.dash-card {
+  background: linear-gradient(145deg, #0b1120, #020617);
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.dash-card h2 {
+  font-weight: 600;
+}
+
+/* Tabla dashboard */
+.table > :not(caption) > * > * {
+  border-bottom-color: rgba(148, 163, 184, 0.3);
+}
+
+/* Navbar overrides */
+.navbar-light .navbar-nav .nav-link {
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: var(--tb-primary-dark);
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .hero-visual {
+    margin-top: 1.5rem;
+  }
+
+  .hero-photo-secondary {
+    display: none;
+  }
+
+  .hero-badge-card {
+    top: auto;
+    bottom: 5%;
+  }
+}
