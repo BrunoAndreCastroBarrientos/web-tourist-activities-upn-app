@@ -2,805 +2,428 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>TurisBooking – Reservas Turísticas | Proyecto UPN – Bruno Castro</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Proyecto académico UPN de Bruno Castro: plataforma web TurisBooking para reservas de actividades turísticas, diseñada con enfoque en usabilidad y experiencia de usuario." />
+  <title>TurisBooking – Reserva actividades turísticas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Plataforma conceptual para reservar actividades turísticas, tours y experiencias de forma rápida y segura." />
 
-  <!-- Fuente Google -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header class="header">
-    <div class="container header__content">
-      <a href="#top" class="logo">
-        <span class="logo__icon">🌍</span>
-        <span class="logo__text">TurisBooking</span>
+
+  <!-- NAVBAR -->
+  <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand d-flex align-items-center fw-semibold" href="#inicio">
+        <span class="logo-icon me-2">🌍</span>
+        <span>TurisBooking</span>
       </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">
-        <span></span>
-      </label>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <nav class="nav">
-        <a href="#proyecto-upn">Proyecto UPN</a>
-        <a href="#modulos">Módulos</a>
-        <a href="#ux">UX/UI</a>
-        <a href="#tecnologia">Tecnología</a>
-        <a href="#actividades">Actividades</a>
-        <a href="#documentacion">Documentación</a>
-        <a href="#login" class="nav__cta">Iniciar sesión</a>
+      <nav class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#destinos">Destinos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#como-funciona">Cómo funciona</a></li>
+          <li class="nav-item"><a class="nav-link" href="#actividades">Actividades</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboards</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-primary rounded-pill px-3" href="#login">Iniciar sesión</a>
+          </li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <!-- HERO + BUSCADOR -->
-    <section class="hero">
-      <div class="container hero__content">
-        <div class="hero__text">
-          <p class="hero__badge">Proyecto académico UPN – Bruno Castro</p>
-          <h1>Reserva actividades turísticas <span>de forma fácil y segura</span></h1>
-          <p>
-            TurisBooking es una plataforma conceptual desarrollada para la UPN que
-            permite buscar, comparar y reservar experiencias turísticas con enfoque en
-            usabilidad, accesibilidad y diseño centrado en el usuario.
-          </p>
+  <main id="inicio">
+    <!-- HERO / LANDING -->
+    <section class="hero py-5">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <h1 class="hero-title mb-3">
+              Reserva actividades turísticas <span>fácil, rápido y seguro</span>
+            </h1>
+            <p class="hero-subtitle mb-4">
+              Explora tours, experiencias gastronómicas y aventuras al aire libre en los mejores
+              destinos. Compara opciones y reserva en minutos.
+            </p>
 
-          <div class="hero__actions">
-            <a href="#proyecto-upn" class="btn-primary hero__actions-main">
-              Ver resumen del proyecto UPN
-            </a>
-            <a href="#documentacion" class="btn-outline hero__actions-secondary">
-              Documentación y enlaces
-            </a>
+            <!-- BUSCADOR (con JS) -->
+            <div class="search-card p-3 p-md-4 shadow-lg rounded-4 bg-white">
+              <form id="search-form" class="row g-3" autocomplete="off">
+                <div class="col-md-4">
+                  <label for="destino" class="form-label form-label-small">Destino</label>
+                  <input type="text" id="destino" name="destino" class="form-control"
+                         placeholder="Ej. Cusco, París, Cancún" />
+                </div>
+                <div class="col-md-3">
+                  <label for="fecha" class="form-label form-label-small">Fecha</label>
+                  <input type="date" id="fecha" name="fecha" class="form-control" />
+                </div>
+                <div class="col-md-3">
+                  <label for="tipo" class="form-label form-label-small">Actividad</label>
+                  <select id="tipo" name="tipo" class="form-select">
+                    <option value="">Cualquiera</option>
+                    <option value="citytour">City tour</option>
+                    <option value="aventura">Aventura</option>
+                    <option value="gastronomia">Gastronomía</option>
+                    <option value="cultural">Cultural</option>
+                  </select>
+                </div>
+                <div class="col-md-2 d-grid">
+                  <label class="form-label form-label-small invisible">Buscar</label>
+                  <button type="submit" class="btn btn-gradient rounded-pill">
+                    Buscar
+                  </button>
+                </div>
+              </form>
+              <p class="small text-muted mt-2 mb-0">
+                🔍 Búsqueda de ejemplo: el resultado se muestra con JavaScript en esta misma página.
+              </p>
+
+              <div id="search-results" class="mt-3"></div>
+            </div>
           </div>
 
-          <form class="search-card" aria-label="Buscador de actividades turísticas">
-            <div class="search-card__grid">
-              <div class="search-card__field">
-                <label for="destino">Destino</label>
-                <input type="text" id="destino" name="destino" placeholder="Ej. Cusco, París, Cancún" />
+          <div class="col-lg-6">
+            <div class="hero-visual position-relative">
+              <div class="hero-photo-main rounded-4 overflow-hidden shadow-lg">
+                <img src="https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                     alt="Personas disfrutando de un tour turístico" class="img-fluid" />
               </div>
-              <div class="search-card__field">
-                <label for="fecha">Fecha</label>
-                <input type="date" id="fecha" name="fecha" />
+              <div class="hero-photo-secondary rounded-4 overflow-hidden shadow-lg">
+                <img src="https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=900"
+                     alt="Paisaje turístico" class="img-fluid" />
               </div>
-              <div class="search-card__field">
-                <label for="tipo">Tipo de actividad</label>
-                <select id="tipo" name="tipo">
-                  <option value="">Cualquiera</option>
-                  <option value="citytour">City tour</option>
-                  <option value="aventura">Aventura</option>
-                  <option value="gastronomia">Gastronomía</option>
-                  <option value="cultural">Cultural</option>
-                </select>
-              </div>
-              <div class="search-card__field search-card__field--button">
-                <button type="submit">Buscar actividades</button>
+              <div class="hero-badge-card shadow rounded-4 bg-white">
+                <h6 class="mb-1 fw-semibold">+1,200 actividades</h6>
+                <p class="small mb-0 text-muted">Operadores verificados en destinos clave.</p>
               </div>
             </div>
-            <p class="search-card__note">
-              🔒 Buscador demostrativo para el proyecto UPN. En un entorno real se
-              conectaría con el backend de TurisBooking.
-            </p>
-          </form>
-        </div>
-
-        <div class="hero__image">
-          <div class="hero__card hero__card--primary">
-            <h3>Proyecto UPN</h3>
-            <p>Desarrollo centrado en el usuario para la asignatura de IHC / Desarrollo Web.</p>
           </div>
-          <div class="hero__card hero__card--secondary">
-            <h3>Bruno Castro</h3>
-            <p>Diseño, arquitectura web y experiencia de usuario para TurisBooking.</p>
-          </div>
-          <div class="hero__photo hero__photo--main">
-            <img src="https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Personas disfrutando de un tour turístico" />
-          </div>
-          <div class="hero__photo hero__photo--secondary">
-            <img src="https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Paisaje turístico" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROYECTO UPN -->
-    <section class="section" id="proyecto-upn">
-      <div class="container">
-        <div class="section__header">
-          <h2>Proyecto académico UPN – TurisBooking</h2>
-          <p>
-            Plataforma web de reservas para actividades turísticas desarrollada por
-            <strong>Bruno Castro</strong> como proyecto para la Universidad Privada del Norte (UPN).
-          </p>
-        </div>
-
-        <div class="grid grid--two">
-          <article class="card-info">
-            <h3>Objetivo general</h3>
-            <p>
-              Diseñar y prototipar una plataforma web que permita a los usuarios
-              buscar, comparar y reservar actividades turísticas, aplicando principios
-              de interacción humano–computador, usabilidad, accesibilidad y diseño
-              centrado en el usuario.
-            </p>
-            <h4>Objetivos específicos</h4>
-            <ul class="card-info__list">
-              <li>Definir requerimientos funcionales y no funcionales del sistema.</li>
-              <li>Modelar el negocio mediante Business Model Canvas.</li>
-              <li>Aplicar Design Thinking para la ideación y validación de la solución.</li>
-              <li>Diseñar prototipos UI responsivos con enfoque mobile-first.</li>
-              <li>Evaluar la experiencia de usuario con métricas de usabilidad.</li>
-            </ul>
-          </article>
-
-          <article class="card-info">
-            <h3>Contexto académico</h3>
-            <p>
-              El proyecto TurisBooking se enmarca en las competencias de
-              <strong>IHC, UX/UI y Tecnología Web</strong> de la UPN, integrando:
-            </p>
-            <ul class="card-info__list">
-              <li>Glosario de conceptos de Interacción Humano–Computador.</li>
-              <li>Identificación de roles del equipo y metodología ágil (Scrum).</li>
-              <li>Definición de métricas de usabilidad y experiencia de usuario.</li>
-              <li>Requisitos de accesibilidad e inclusión para personas con discapacidad.</li>
-              <li>Uso de contenedores Docker para la entrega del proyecto.</li>
-            </ul>
-            <p class="card-info__note">
-              Toda la interfaz que estás viendo corresponde a la versión estática
-              diseñada para documentación y presentación del proyecto.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- MÓDULOS DEL SISTEMA -->
-    <section class="section section--alt" id="modulos">
-      <div class="container">
-        <div class="section__header">
-          <h2>Módulos del sistema TurisBooking</h2>
-          <p>Resumen de la arquitectura funcional propuesta para el proyecto UPN.</p>
-        </div>
-
-        <div class="grid grid--modules">
-          <article class="card-module">
-            <h3>1. Búsqueda y descubrimiento</h3>
-            <p>
-              Permite filtrar actividades por destino, fecha, tipo, precio, idioma del
-              guía y nivel de dificultad.
-            </p>
-            <ul>
-              <li>Barra de búsqueda inteligente.</li>
-              <li>Filtros combinados y ordenamiento.</li>
-              <li>Listado de resultados en tarjetas.</li>
-            </ul>
-          </article>
-
-          <article class="card-module">
-            <h3>2. Reservas y pagos</h3>
-            <p>
-              Gestiona el flujo de reserva desde la selección de fecha hasta el pago
-              seguro de la actividad.
-            </p>
-            <ul>
-              <li>Selección de fecha, horario y cupos.</li>
-              <li>Resumen de reserva y precio final.</li>
-              <li>Integración conceptual con pasarela de pagos.</li>
-            </ul>
-          </article>
-
-          <article class="card-module">
-            <h3>3. Panel de operadores</h3>
-            <p>
-              Área para que guías y agencias administren sus actividades y
-              disponibilidad.
-            </p>
-            <ul>
-              <li>Creación y edición de actividades.</li>
-              <li>Calendario de disponibilidad.</li>
-              <li>Estadísticas básicas de reservas.</li>
-            </ul>
-          </article>
-
-          <article class="card-module">
-            <h3>4. Administración y reportes</h3>
-            <p>
-              Módulo orientado al control general de la plataforma y soporte a los
-              usuarios.
-            </p>
-            <ul>
-              <li>Gestión de usuarios y operadores.</li>
-              <li>Moderación de reseñas y contenidos.</li>
-              <li>Reportes para análisis académico en UPN.</li>
-            </ul>
-          </article>
         </div>
       </div>
     </section>
 
     <!-- DESTINOS POPULARES -->
-    <section class="section" id="destinos">
+    <section id="destinos" class="py-5 section-alt">
       <div class="container">
-        <div class="section__header">
-          <h2>Destinos populares</h2>
-          <p>Ejemplos de destinos usados en el prototipo de TurisBooking.</p>
+        <div class="section-header mb-4 text-center text-md-start">
+          <h2 class="section-title">Destinos populares</h2>
+          <p class="section-subtitle">
+            Algunos de los lugares favoritos de los viajeros en TurisBooking.
+          </p>
         </div>
 
-        <div class="grid grid--destinos">
-          <article class="card-destino">
-            <div class="card-destino__image">
-              <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Vista de ciudad histórica" />
-              <span class="card-destino__tag">Cultural</span>
-            </div>
-            <div class="card-destino__body">
-              <h3>Cusco, Perú</h3>
-              <p>Explora la capital del imperio inca, Machu Picchu y el Valle Sagrado.</p>
-              <span class="card-destino__meta">Más de 80 actividades en el prototipo.</span>
-            </div>
-          </article>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="card card-destino h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+              <div class="position-relative">
+                <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=900"
+                     class="card-img-top"
+                     alt="Vista de ciudad histórica en Cusco" />
+                <span class="badge destino-tag">Cultural</span>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Cusco, Perú</h3>
+                <p class="card-text text-muted">
+                  Capital histórica del imperio inca, con acceso a Machu Picchu y el Valle Sagrado.
+                </p>
+                <p class="small text-primary fw-semibold mb-0">+80 actividades disponibles</p>
+              </div>
+            </article>
+          </div>
 
-          <article class="card-destino">
-            <div class="card-destino__image">
-              <img src="https://images.pexels.com/photos/587441/pexels-photo-587441.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ciudad con canal y arquitectura clásica" />
-              <span class="card-destino__tag card-destino__tag--alt">City tour</span>
-            </div>
-            <div class="card-destino__body">
-              <h3>París, Francia</h3>
-              <p>Recorridos guiados por la Torre Eiffel, el Louvre y barrios emblemáticos.</p>
-              <span class="card-destino__meta">Enfoque en city tours y museos.</span>
-            </div>
-          </article>
+          <div class="col-md-4">
+            <article class="card card-destino h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+              <div class="position-relative">
+                <img src="https://images.pexels.com/photos/587441/pexels-photo-587441.jpeg?auto=compress&cs=tinysrgb&w=900"
+                     class="card-img-top"
+                     alt="Ciudad iluminada y río en París" />
+                <span class="badge destino-tag destino-tag-alt">City tour</span>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">París, Francia</h3>
+                <p class="card-text text-muted">
+                  Recorridos guiados por la Torre Eiffel, el Louvre, Montmartre y más.
+                </p>
+                <p class="small text-primary fw-semibold mb-0">City tours día y noche</p>
+              </div>
+            </article>
+          </div>
 
-          <article class="card-destino">
-            <div class="card-destino__image">
-              <img src="https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Playa tropical" />
-              <span class="card-destino__tag">Aventura</span>
-            </div>
-            <div class="card-destino__body">
-              <h3>Cancún, México</h3>
-              <p>Snorkel, cenotes y tours arqueológicos combinados en un solo destino.</p>
-              <span class="card-destino__meta">Actividades familiares y de aventura.</span>
-            </div>
-          </article>
+          <div class="col-md-4">
+            <article class="card card-destino h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+              <div class="position-relative">
+                <img src="https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=900"
+                     class="card-img-top"
+                     alt="Playa tropical en Cancún" />
+                <span class="badge destino-tag">Aventura</span>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Cancún, México</h3>
+                <p class="card-text text-muted">
+                  Snorkel, cenotes, parques temáticos y sitios arqueológicos en el Caribe.
+                </p>
+                <p class="small text-primary fw-semibold mb-0">Actividades para toda la familia</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CÓMO FUNCIONA -->
-    <section class="section section--alt" id="como-funciona">
+    <section id="como-funciona" class="py-5">
       <div class="container">
-        <div class="section__header">
-          <h2>¿Cómo funciona TurisBooking?</h2>
-          <p>Flujo principal modelado para el proyecto UPN.</p>
+        <div class="section-header mb-4 text-center text-md-start">
+          <h2 class="section-title">¿Cómo funciona TurisBooking?</h2>
+          <p class="section-subtitle">
+            Un flujo simple pensado desde la experiencia del usuario.
+          </p>
         </div>
 
-        <div class="grid grid--steps">
-          <article class="step">
-            <span class="step__number">1</span>
-            <h3>Busca y compara</h3>
-            <p>
-              Ingresa tu destino y fecha. Filtra por tipo de actividad, precio, idioma del guía y duración.
-            </p>
-          </article>
-          <article class="step">
-            <span class="step__number">2</span>
-            <h3>Revisa detalles</h3>
-            <p>
-              Analiza descripciones, itinerario, políticas de cancelación y reseñas de otros viajeros.
-            </p>
-          </article>
-          <article class="step">
-            <span class="step__number">3</span>
-            <h3>Reserva y disfruta</h3>
-            <p>
-              Completa tus datos, realiza el pago seguro y recibe la confirmación en tu correo.
-            </p>
-          </article>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="step-card h-100">
+              <div class="step-icon">1</div>
+              <h3 class="h5 mb-2">Busca y filtra</h3>
+              <p class="mb-0 text-muted">
+                Elige tu destino y fecha. Aplica filtros de tipo de actividad, precio y duración.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="step-card h-100">
+              <div class="step-icon">2</div>
+              <h3 class="h5 mb-2">Compara y elige</h3>
+              <p class="mb-0 text-muted">
+                Revisa itinerarios, fotos reales, opiniones de otros viajeros y políticas de cancelación.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="step-card h-100">
+              <div class="step-icon">3</div>
+              <h3 class="h5 mb-2">Reserva y disfruta</h3>
+              <p class="mb-0 text-muted">
+                Completa tus datos, realiza el pago seguro y recibe confirmación al instante en tu correo.
+              </p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ACTIVIDADES DESTACADAS -->
-    <section class="section" id="actividades">
+    <section id="actividades" class="py-5 section-alt">
       <div class="container">
-        <div class="section__header">
-          <h2>Actividades destacadas</h2>
-          <p>Componentes de interfaz usados como ejemplo en el proyecto UPN.</p>
-        </div>
-
-        <div class="grid grid--actividades">
-          <article class="card-actividad">
-            <div class="card-actividad__top">
-              <span class="card-actividad__badge">Top ventas</span>
-              <img src="https://images.pexels.com/photos/21014/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800" alt="Tour guiado por ciudad" />
-            </div>
-            <div class="card-actividad__body">
-              <h3>City tour histórico en Cusco</h3>
-              <p>Recorrido guiado de medio día por los principales puntos históricos de la ciudad.</p>
-              <div class="card-actividad__meta">
-                <span>⭐ 4.8 (320 reseñas)</span>
-                <span>⏱ 4 horas</span>
-              </div>
-              <div class="card-actividad__footer">
-                <span class="card-actividad__price">Desde US$ 35</span>
-                <button type="button">Ver detalles</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card-actividad">
-            <div class="card-actividad__top">
-              <span class="card-actividad__badge card-actividad__badge--alt">Nuevo</span>
-              <img src="https://images.pexels.com/photos/460376/pexels-photo-460376.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Actividad gastronómica" />
-            </div>
-            <div class="card-actividad__body">
-              <h3>Ruta gastronómica nocturna</h3>
-              <p>Degusta platos típicos acompañado de un guía local en un ambiente relajado.</p>
-              <div class="card-actividad__meta">
-                <span>⭐ 4.7 (89 reseñas)</span>
-                <span>⏱ 3 horas</span>
-              </div>
-              <div class="card-actividad__footer">
-                <span class="card-actividad__price">Desde US$ 49</span>
-                <button type="button">Ver detalles</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card-actividad">
-            <div class="card-actividad__top">
-              <span class="card-actividad__badge">Aventura</span>
-              <img src="https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Trekking de aventura" />
-            </div>
-            <div class="card-actividad__body">
-              <h3>Trekking a mirador panorámico</h3>
-              <p>Excursión moderada ideal para quienes buscan naturaleza y vistas espectaculares.</p>
-              <div class="card-actividad__meta">
-                <span>⭐ 4.9 (150 reseñas)</span>
-                <span>⏱ Día completo</span>
-              </div>
-              <div class="card-actividad__footer">
-                <span class="card-actividad__price">Desde US$ 65</span>
-                <button type="button">Ver detalles</button>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- UX/UI Y PROCESO DE DISEÑO -->
-    <section class="section section--alt" id="ux">
-      <div class="container">
-        <div class="section__header">
-          <h2>UX/UI y proceso de diseño</h2>
-          <p>Aplicación de Design Thinking y principios de IHC en el proyecto UPN.</p>
-        </div>
-
-        <div class="grid grid--two">
-          <article class="card-info">
-            <h3>Fases del diseño centrado en el usuario</h3>
-            <ol class="card-info__list card-info__list--numbered">
-              <li>
-                <strong>Empatizar:</strong> entrevistas a viajeros y operadores turísticos
-                para identificar problemas reales de reserva.
-              </li>
-              <li>
-                <strong>Definir:</strong> síntesis de hallazgos en un problema central de
-                experiencia de usuario.
-              </li>
-              <li>
-                <strong>Idear:</strong> generación de soluciones para el flujo de búsqueda,
-                detalle de actividades y proceso de reserva.
-              </li>
-              <li>
-                <strong>Prototipar:</strong> creación de wireframes y prototipos hi-fi en
-                Figma para desktop y mobile.
-              </li>
-              <li>
-                <strong>Testear:</strong> pruebas con usuarios, recogiendo comentarios para
-                mejorar textos, botones y navegación.
-              </li>
-            </ol>
-          </article>
-
-          <article class="card-info">
-            <h3>Entregables UX/UI del proyecto</h3>
-            <ul class="card-info__list">
-              <li>Mapa de actores y escenarios de uso (user scenarios).</li>
-              <li>Definición de user personas para viajeros y operadores.</li>
-              <li>User stories para priorizar funcionalidades clave.</li>
-              <li>Impact Mapping para alinear objetivos de negocio y experiencia.</li>
-              <li>Sistema de diseño con componentes reutilizables.</li>
-            </ul>
-            <p class="card-info__note">
-              Las maquetas de este diseño pueden enlazarse desde la sección de
-              <strong>Documentación</strong> para abrirse en otra pestaña (Figma o PDF).
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- TECNOLOGÍA WEB Y ARQUITECTURA -->
-    <section class="section" id="tecnologia">
-      <div class="container">
-        <div class="section__header">
-          <h2>Tecnología web y arquitectura de despliegue</h2>
-          <p>Stack pensado para ser simple, demostrativo y fácil de dockerizar.</p>
-        </div>
-
-        <div class="grid grid--three">
-          <article class="card-module">
-            <h3>Frontend estático</h3>
-            <p>La entrega para la UPN se basa en:</p>
-            <ul>
-              <li>HTML5 semántico para la estructura del contenido.</li>
-              <li>CSS3 personalizado con enfoque responsive.</li>
-              <li>Diseño mobile-first y componentes reutilizables.</li>
-            </ul>
-          </article>
-
-          <article class="card-module">
-            <h3>Servidor web y contenedores</h3>
-            <p>Despliegue simplificado para demostración:</p>
-            <ul>
-              <li>Servidor <strong>Nginx</strong> como web server estático.</li>
-              <li>Empaquetado mediante <strong>Dockerfile</strong> (sin docker-compose).</li>
-              <li>Exposición del sitio en el puerto 80 del contenedor.</li>
-            </ul>
-          </article>
-
-          <article class="card-module">
-            <h3>Buenas prácticas</h3>
-            <p>Lineamientos aplicados en el proyecto:</p>
-            <ul>
-              <li>Separación clara entre estructura (HTML) y estilos (CSS).</li>
-              <li>Uso de clases reutilizables (grids, cards, botones).</li>
-              <li>Preparación para futura integración con backend real.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- MÉTRICAS DE USABILIDAD -->
-    <section class="section section--alt" id="metricas">
-      <div class="container">
-        <div class="section__header">
-          <h2>Métricas de usabilidad definidas</h2>
-          <p>Indicadores planteados para evaluar el prototipo de TurisBooking.</p>
-        </div>
-
-        <div class="metrics-grid">
-          <article class="metric-card">
-            <h3>Tiempo de reserva</h3>
-            <p>Tiempo promedio para completar una reserva desde la búsqueda hasta la confirmación.</p>
-            <span class="metric-card__target">Meta: &lt; 4 minutos</span>
-          </article>
-
-          <article class="metric-card">
-            <h3>Tasa de éxito</h3>
-            <p>Porcentaje de usuarios que completan la tarea de reserva sin errores ni ayuda.</p>
-            <span class="metric-card__target">Meta: &gt; 85%</span>
-          </article>
-
-          <article class="metric-card">
-            <h3>Tasa de abandono</h3>
-            <p>Usuarios que abandonan el flujo de reserva antes de pagar.</p>
-            <span class="metric-card__target">Meta: &lt; 20%</span>
-          </article>
-
-          <article class="metric-card">
-            <h3>Satisfacción (SUS)</h3>
-            <p>Escala estándar de usabilidad aplicada a usuarios de prueba.</p>
-            <span class="metric-card__target">Meta: &gt; 80/100</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ACCESIBILIDAD -->
-    <section class="section" id="accesibilidad">
-      <div class="container">
-        <div class="section__header">
-          <h2>Accesibilidad e inclusión</h2>
-          <p>Requisitos considerados para personas con diferentes capacidades.</p>
-        </div>
-
-        <div class="grid grid--two">
-          <article class="card-info">
-            <h3>Lineamientos aplicados</h3>
-            <ul class="access-list">
-              <li>Contraste adecuado entre texto y fondo en botones y tarjetas.</li>
-              <li>Textos alternativos en imágenes principales del sitio.</li>
-              <li>Estructura HTML semántica para apoyarse en lectores de pantalla.</li>
-              <li>Botones con áreas de clic amplias para usuarios en móvil.</li>
-            </ul>
-          </article>
-
-          <article class="card-info">
-            <h3>Mejoras futuras</h3>
-            <ul class="access-list">
-              <li>Navegación completa con teclado (focus visible y ordenado).</li>
-              <li>Compatibilidad avanzada con tecnologías asistivas (WAI-ARIA).</li>
-              <li>Modo de alto contraste y opción de aumentar tamaño de fuente.</li>
-              <li>Guías adicionales para operadores sobre contenido inclusivo.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- OPINIONES -->
-    <section class="section section--alt" id="opiniones">
-      <div class="container">
-        <div class="section__header">
-          <h2>Opiniones de usuarios (simulación)</h2>
-          <p>Comentarios ficticios usados para validar la experiencia de usuario.</p>
-        </div>
-
-        <div class="grid grid--opiniones">
-          <article class="card-opinion">
-            <p class="card-opinion__text">
-              “El proceso fue rápido y claro. Me gustó poder ver todas las actividades
-              filtradas por idioma y precio.”
-            </p>
-            <div class="card-opinion__user">
-              <div class="card-opinion__avatar">A</div>
-              <div>
-                <h3>Ana, 27 años</h3>
-                <span>Viajera independiente</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card-opinion">
-            <p class="card-opinion__text">
-              “Como guía, tener un panel con mis reservas me ayuda a organizar mejor los grupos
-              y evitar sobreventas.”
-            </p>
-            <div class="card-opinion__user">
-              <div class="card-opinion__avatar">C</div>
-              <div>
-                <h3>Carlos, 35 años</h3>
-                <span>Guía de trekking</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card-opinion">
-            <p class="card-opinion__text">
-              “La interfaz es simple y se ve moderna. En un celular se navega sin problemas,
-              incluso durante el viaje.”
-            </p>
-            <div class="card-opinion__user">
-              <div class="card-opinion__avatar">M</div>
-              <div>
-                <h3>María, 31 años</h3>
-                <span>Viajera ocasional</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PARA OPERADORES -->
-    <section class="section section--highlight" id="operadores">
-      <div class="container section--highlight__content">
-        <div>
-          <h2>¿Eres operador turístico o guía?</h2>
-          <p>
-            En el contexto del proyecto UPN, modelamos una experiencia para que operadores
-            publiquen actividades, gestionen reservas y aumenten su visibilidad.
-          </p>
-          <ul class="highlight__list">
-            <li>Panel de control con reservas e ingresos.</li>
-            <li>Calendario de disponibilidad por fecha y horario.</li>
-            <li>Mejor visibilidad gracias a reseñas y actividades destacadas.</li>
-          </ul>
-          <a href="#contacto" class="btn-primary">Quiero más información (demo)</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section__header">
-          <h2>Preguntas frecuentes del proyecto UPN</h2>
-          <p>Respuestas rápidas para la presentación académica.</p>
-        </div>
-
-        <div class="faq">
-          <article class="faq-item">
-            <h3>¿Este proyecto está conectado a una base de datos real?</h3>
-            <p>
-              No. La versión entregada para la UPN es un prototipo estático en HTML y CSS,
-              pensado para documentar el diseño de la plataforma y su arquitectura de despliegue
-              con Docker.
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>¿Se puede integrar TurisBooking con un backend en el futuro?</h3>
-            <p>
-              Sí. La estructura actual separa claramente la capa de presentación, permitiendo
-              que en el futuro se integre con APIs REST o microservicios para gestionar reservas,
-              usuarios y operadores.
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>¿Por qué se usa Docker en este proyecto?</h3>
-            <p>
-              Docker facilita empaquetar el sitio con Nginx en una imagen reproducible, lo que
-              simplifica el despliegue y la evaluación del proyecto en diferentes entornos sin
-              problemas de configuración.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- LOGIN / CONTACTO -->
-    <section class="section" id="login">
-      <div class="container grid grid--login-contact">
-        <div>
-          <div class="section__header section__header--compact">
-            <h2>Inicia sesión (demo)</h2>
-            <p>Interfaz de ejemplo para la sección de autenticación del proyecto.</p>
-          </div>
-          <form class="form-card">
-            <div class="form-card__field">
-              <label for="email">Correo electrónico</label>
-              <input type="email" id="email" placeholder="tucorreo@ejemplo.com" />
-            </div>
-            <div class="form-card__field">
-              <label for="password">Contraseña</label>
-              <input type="password" id="password" placeholder="••••••••" />
-            </div>
-            <button type="submit" class="btn-primary btn-primary--full">Ingresar</button>
-            <p class="form-card__note">
-              Formulario demostrativo sin backend. En una implementación real se
-              conectaría a un servicio de autenticación.
-            </p>
-          </form>
-        </div>
-
-        <div id="contacto">
-          <div class="section__header section__header--compact">
-            <h2>Contacto del proyecto</h2>
-            <p>Sección de ejemplo para solicitudes y dudas sobre TurisBooking.</p>
-          </div>
-          <form class="form-card">
-            <div class="form-card__field">
-              <label for="nombre">Nombre completo</label>
-              <input type="text" id="nombre" placeholder="Tu nombre" />
-            </div>
-            <div class="form-card__field">
-              <label for="mensaje">Mensaje</label>
-              <textarea id="mensaje" rows="4" placeholder="Cuéntanos qué necesitas…"></textarea>
-            </div>
-            <button type="submit" class="btn-outline btn-outline--full">Enviar mensaje (demo)</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- DOCUMENTACIÓN Y ENLACES (BOTONES A OTRAS PESTAÑAS) -->
-    <section class="section section--alt" id="documentacion">
-      <div class="container">
-        <div class="section__header">
-          <h2>Documentación y enlaces del proyecto UPN</h2>
-          <p>
-            Estos botones están pensados para abrir contenido del proyecto en
-            <strong>otras pestañas</strong> del navegador (GitHub, PDF, Figma, etc.).
+        <div class="section-header mb-4 text-center text-md-start">
+          <h2 class="section-title">Actividades destacadas</h2>
+          <p class="section-subtitle">
+            Ejemplos de experiencias que podrían ofrecerse dentro de la plataforma.
           </p>
         </div>
 
-        <div class="doc-links">
-          <!-- Puedes reemplazar los enlaces de ejemplo con los reales cuando los tengas -->
-          <a
-            href="https://github.com/usuario/turisbooking-upn"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-primary doc-links__btn"
-          >
-            Ver repositorio en GitHub
-          </a>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="card card-actividad h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+              <div class="position-relative">
+                <img src="https://images.pexels.com/photos/21014/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=900"
+                     class="card-img-top" alt="Tour guiado por ciudad" />
+                <span class="badge actividad-badge bg-success">Top ventas</span>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">City tour histórico en Cusco</h3>
+                <p class="card-text text-muted">
+                  Recorrido guiado de medio día por los principales puntos históricos de la ciudad.
+                </p>
+                <div class="d-flex justify-content-between small text-muted mb-2">
+                  <span>⭐ 4.8 (320 reseñas)</span>
+                  <span>⏱ 4 horas</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="fw-semibold text-primary">Desde US$ 35</span>
+                  <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">
+                    Ver detalles
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
 
-          <a
-            href="docs/informe-upn-turisbooking.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-outline doc-links__btn"
-          >
-            Abrir informe UPN (PDF)
-          </a>
+          <div class="col-md-4">
+            <article class="card card-actividad h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+              <div class="position-relative">
+                <img src="https://images.pexels.com/photos/460376/pexels-photo-460376.jpeg?auto=compress&cs=tinysrgb&w=900"
+                     class="card-img-top" alt="Actividad gastronómica" />
+                <span class="badge actividad-badge bg-info text-dark">Nuevo</span>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Ruta gastronómica nocturna</h3>
+                <p class="card-text text-muted">
+                  Degusta platos típicos acompañado de un guía local en un ambiente relajado.
+                </p>
+                <div class="d-flex justify-content-between small text-muted mb-2">
+                  <span>⭐ 4.7 (89 reseñas)</span>
+                  <span>⏱ 3 horas</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="fw-semibold text-primary">Desde US$ 49</span>
+                  <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">
+                    Ver detalles
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
 
-          <a
-            href="docs/manual-usuario-turisbooking.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-outline doc-links__btn"
-          >
-            Manual de usuario (PDF)
-          </a>
-
-          <a
-            href="https://www.figma.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-outline doc-links__btn"
-          >
-            Maquetas de diseño en Figma
-          </a>
+          <div class="col-md-4">
+            <article class="card card-actividad h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+              <div class="position-relative">
+                <img src="https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&w=900"
+                     class="card-img-top" alt="Trekking de aventura" />
+                <span class="badge actividad-badge bg-warning text-dark">Aventura</span>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Trekking a mirador panorámico</h3>
+                <p class="card-text text-muted">
+                  Excursión moderada ideal para quienes buscan naturaleza y vistas espectaculares.
+                </p>
+                <div class="d-flex justify-content-between small text-muted mb-2">
+                  <span>⭐ 4.9 (150 reseñas)</span>
+                  <span>⏱ Día completo</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="fw-semibold text-primary">Desde US$ 65</span>
+                  <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">
+                    Ver detalles
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <p class="doc-links__note">
-          👉 Si aún no tienes los archivos, puedes mantener estos enlaces como
-          <strong>referencia académica</strong> o cambiarlos por rutas reales antes de presentar el proyecto.
-        </p>
+    <!-- LOGIN & CONTACTO -->
+    <section id="login" class="py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="section-header mb-3">
+              <h2 class="section-title">Inicia sesión</h2>
+              <p class="section-subtitle">
+                Accede a tus reservas y panel de usuario. Formulario demostrativo solo frontend.
+              </p>
+            </div>
+
+            <form class="card border-0 shadow-sm rounded-4 p-3 p-md-4">
+              <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com" />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" placeholder="••••••••" />
+              </div>
+              <button type="submit" class="btn btn-gradient w-100 rounded-pill">Ingresar</button>
+              <p class="small text-muted mt-2 mb-0">
+                *En un proyecto real, este formulario se conectaría con un backend de autenticación.
+              </p>
+            </form>
+          </div>
+
+          <div class="col-lg-6" id="contacto">
+            <div class="section-header mb-3">
+              <h2 class="section-title">¿Tienes dudas?</h2>
+              <p class="section-subtitle">
+                Escríbenos y un miembro del equipo se pondrá en contacto contigo.
+              </p>
+            </div>
+
+            <form class="card border-0 shadow-sm rounded-4 p-3 p-md-4">
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" />
+              </div>
+              <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" rows="4" placeholder="Cuéntanos qué necesitas…"></textarea>
+              </div>
+              <button type="submit" class="btn btn-outline-secondary w-100 rounded-pill">Enviar mensaje</button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__content">
-      <div class="footer__brand">
-        <div class="logo logo--footer">
-          <span class="logo__icon">🌍</span>
-          <span class="logo__text">TurisBooking</span>
+  <!-- FOOTER -->
+  <footer class="footer mt-4 pt-4 pb-3">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-md-5">
+          <div class="d-flex align-items-center mb-2">
+            <span class="logo-icon me-2">🌍</span>
+            <span class="fw-semibold">TurisBooking</span>
+          </div>
+          <p class="small text-muted mb-2">
+            Proyecto conceptual para demostrar una landing page de reservas de actividades turísticas
+            con HTML5, CSS, JavaScript y Bootstrap.
+          </p>
         </div>
-        <p>
-          Proyecto académico para la <strong>Universidad Privada del Norte (UPN)</strong>,
-          desarrollado por <strong>Bruno Castro</strong> como ejemplo de plataforma de
-          reservas turísticas centrada en el usuario.
-        </p>
+        <div class="col-md-7">
+          <div class="row g-4 small">
+            <div class="col-4">
+              <h6 class="fw-semibold">Plataforma</h6>
+              <ul class="list-unstyled mb-0">
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#actividades">Actividades</a></li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <h6 class="fw-semibold">Operadores</h6>
+              <ul class="list-unstyled mb-0">
+                <li><a href="dashboard.html">Dashboards</a></li>
+                <li><a href="#contacto">Afíliate</a></li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <h6 class="fw-semibold">Soporte</h6>
+              <ul class="list-unstyled mb-0">
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#login">Acceder</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="footer__grid">
-        <div>
-          <h3>Proyecto UPN</h3>
-          <ul>
-            <li><a href="#proyecto-upn">Resumen del proyecto</a></li>
-            <li><a href="#modulos">Módulos del sistema</a></li>
-            <li><a href="#metricas">Métricas de usabilidad</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Experiencia</h3>
-          <ul>
-            <li><a href="#ux">UX/UI</a></li>
-            <li><a href="#accesibilidad">Accesibilidad</a></li>
-            <li><a href="#opiniones">Opiniones (demo)</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Entrega</h3>
-          <ul>
-            <li><a href="#tecnologia">Tecnología y Docker</a></li>
-            <li><a href="#documentacion">Documentación</a></li>
-            <li><a href="#login">Acceso y contacto</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <div class="container footer__bottom-inner">
-        <span>© 2025 TurisBooking – Proyecto académico UPN de Bruno Castro.</span>
-        <span>Entrega estática en HTML + CSS, servida con Nginx en Docker.</span>
+
+      <hr class="border-secondary-subtle my-3" />
+      <div class="d-flex flex-column flex-md-row justify-content-between small text-muted">
+        <span>© 2025 TurisBooking. Uso académico / demostrativo.</span>
+        <span>Landing page + Dashboards · HTML5 · CSS · JS · Bootstrap</span>
       </div>
     </div>
   </footer>
+
+  <!-- Bootstrap JS + JS propio -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
