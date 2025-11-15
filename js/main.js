@@ -1,4 +1,6 @@
-// Mock de actividades para usar en landing + detalle
+// =============================
+// Mock de actividades (landing + detalle)
+// =============================
 const ACTIVIDADES_MOCK = [
   {
     id: "citytour-cusco",
@@ -11,8 +13,10 @@ const ACTIVIDADES_MOCK = [
     rating: 4.8,
     reseñas: 320,
     dificultad: "Baja",
-    imgPrincipal: "https://images.pexels.com/photos/21014/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=900",
-    imgSecundaria: "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imgPrincipal:
+      "https://images.pexels.com/photos/21014/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=900",
+    imgSecundaria:
+      "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=900",
     descripcionCorta:
       "Recorrido guiado de medio día por los principales puntos históricos de la ciudad.",
     descripcionLarga:
@@ -20,10 +24,10 @@ const ACTIVIDADES_MOCK = [
     incluye: [
       "Guía oficial de turismo",
       "Ingreso a los puntos indicados en el itinerario",
-      "Transporte turístico compartido"
+      "Transporte turístico compartido",
     ],
     noIncluye: ["Alimentación", "Propinas", "Gastos personales"],
-    puntoEncuentro: "Plaza de Armas de Cusco (frente a la Catedral)"
+    puntoEncuentro: "Plaza de Armas de Cusco (frente a la Catedral)",
   },
   {
     id: "ruta-gastronomica",
@@ -36,8 +40,10 @@ const ACTIVIDADES_MOCK = [
     rating: 4.7,
     reseñas: 89,
     dificultad: "Baja",
-    imgPrincipal: "https://images.pexels.com/photos/460376/pexels-photo-460376.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgSecundaria: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imgPrincipal:
+      "https://images.pexels.com/photos/460376/pexels-photo-460376.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imgSecundaria:
+      "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=900",
     descripcionCorta:
       "Descubre los sabores locales con un guía foodie en un recorrido nocturno.",
     descripcionLarga:
@@ -45,10 +51,10 @@ const ACTIVIDADES_MOCK = [
     incluye: [
       "Degustación en 4 paradas gastronómicas",
       "Guía especializado en gastronomía",
-      "Una bebida por parada"
+      "Una bebida por parada",
     ],
     noIncluye: ["Traslado al punto de encuentro", "Bebidas adicionales"],
-    puntoEncuentro: "Plaza principal de la ciudad (frente al ayuntamiento)"
+    puntoEncuentro: "Plaza principal de la ciudad (frente al ayuntamiento)",
   },
   {
     id: "trekking-mirador",
@@ -61,8 +67,10 @@ const ACTIVIDADES_MOCK = [
     rating: 4.9,
     reseñas: 150,
     dificultad: "Media",
-    imgPrincipal: "https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgSecundaria: "https://images.pexels.com/photos/459947/pexels-photo-459947.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imgPrincipal:
+      "https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imgSecundaria:
+      "https://images.pexels.com/photos/459947/pexels-photo-459947.jpeg?auto=compress&cs=tinysrgb&w=900",
     descripcionCorta:
       "Excursión de día completo con vistas espectaculares y paisajes naturales.",
     descripcionLarga:
@@ -70,18 +78,20 @@ const ACTIVIDADES_MOCK = [
     incluye: [
       "Guía de montaña certificado",
       "Transporte de ida y vuelta",
-      "Snack y almuerzo ligero"
+      "Snack y almuerzo ligero",
     ],
     noIncluye: ["Equipo personal (botas, bastones)", "Seguro de viaje"],
-    puntoEncuentro: "Terminal de buses turísticos de la ciudad"
-  }
+    puntoEncuentro: "Terminal de buses turísticos de la ciudad",
+  },
 ];
 
 function getActividadById(id) {
   return ACTIVIDADES_MOCK.find((a) => a.id === id);
 }
 
-// --- LISTO EL DOM ---
+// =============================
+// INIT GLOBAL
+// =============================
 document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
   initLandingSearch();
@@ -93,9 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initContactFormFeedback();
 });
 
-/* ---------------------------
-   SCROLL SUAVE EN ANCLAS
----------------------------- */
+// =============================
+// SCROLL SUAVE
+// =============================
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
@@ -111,9 +121,9 @@ function initSmoothScroll() {
   });
 }
 
-/* ---------------------------
-   LANDING: BUSCADOR
----------------------------- */
+// =============================
+// LANDING: BUSCADOR
+// =============================
 function initLandingSearch() {
   const searchForm = document.getElementById("search-form");
   const resultsBox = document.getElementById("search-results");
@@ -145,14 +155,16 @@ function initLandingSearch() {
       return;
     }
 
-    // Render de tarjetas resultantes
     const html = filtradas
       .map(
         (act) => `
         <article class="card border-0 shadow-sm rounded-4 mb-3">
           <div class="row g-0">
             <div class="col-md-4">
-              <img src="${act.imgPrincipal}" class="img-fluid rounded-start h-100 object-fit-cover" alt="${act.nombre}">
+              <img src="${act.imgPrincipal}"
+                   class="img-fluid rounded-start h-100"
+                   style="object-fit: cover;"
+                   alt="${act.nombre}">
             </div>
             <div class="col-md-8">
               <div class="card-body">
@@ -177,14 +189,13 @@ function initLandingSearch() {
       .join("");
 
     resultsBox.innerHTML = html;
-    // Reasignamos eventos a botones de "Ver detalles" recién pintados
-    initActivityDetailLinks(resultsBox);
+    initActivityDetailLinks(resultsBox); // re-asignar eventos en resultados
   });
 }
 
-/* ---------------------------
-   LINK "VER DETALLES" -> actividad-detalle.html?id=...
----------------------------- */
+// =============================
+// LINKS "VER DETALLES" -> actividad-detalle.html?id=...
+// =============================
 function initActivityDetailLinks(scope = document) {
   const detailButtons = scope.querySelectorAll("[data-actividad-id]");
   detailButtons.forEach((btn) => {
@@ -197,12 +208,12 @@ function initActivityDetailLinks(scope = document) {
   });
 }
 
-/* ---------------------------
-   PÁGINA DETALLE: render dinámico
----------------------------- */
+// =============================
+// PÁGINA DETALLE: render dinámico
+// =============================
 function initActivityDetailPage() {
   const root = document.querySelector("[data-activity-detail-root]");
-  if (!root) return;
+  if (!root) return; // no estamos en actividad-detalle.html
 
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id") || "";
@@ -281,8 +292,8 @@ function initActivityDetailPage() {
 
               <div class="d-flex justify-content-between align-items-center my-2">
                 <span class="small">Precio unitario:</span>
-                <span class="small fw-semibold">
-                  <span id="detalle-precio-unitario">${actividad.moneda} ${actividad.precioDesde}</span>
+                <span class="small fw-semibold" id="detalle-precio-unitario">
+                  ${actividad.moneda} ${actividad.precioDesde}
                 </span>
               </div>
 
@@ -330,9 +341,9 @@ function initActivityDetailPage() {
             <div class="card-body small">
               <h3 class="h6">Incluye</h3>
               <ul class="mb-0">
-                ${actividad.inc
-                  .cluye?.map((i) => `<li>${i}</li>`).join("") ??
-                actividad.incluye.map((i) => `<li>${i}</li>`).join("")}
+                ${actividad.incluye
+                  .map((item) => `<li>${item}</li>`)
+                  .join("")}
               </ul>
             </div>
           </div>
@@ -340,7 +351,9 @@ function initActivityDetailPage() {
             <div class="card-body small">
               <h3 class="h6">No incluye</h3>
               <ul class="mb-0">
-                ${actividad.noIncluye.map((i) => `<li>${i}</li>`).join("")}
+                ${actividad.noIncluye
+                  .map((item) => `<li>${item}</li>`)
+                  .join("")}
               </ul>
             </div>
           </div>
@@ -349,7 +362,6 @@ function initActivityDetailPage() {
     </section>
   `;
 
-  // Inicializar lógica de cálculo de total y simulación de reserva
   initDetalleReservaForm(actividad);
 }
 
@@ -374,6 +386,7 @@ function initDetalleReservaForm(actividad) {
     e.preventDefault();
     const fecha = document.getElementById("detalle-fecha")?.value || "";
     const personas = parseInt(personasInput.value || "1", 10);
+
     if (!fecha || personas < 1) {
       feedback.innerHTML =
         '<div class="alert alert-warning mt-2 mb-0">Completa fecha y número de personas.</div>';
@@ -391,9 +404,9 @@ function initDetalleReservaForm(actividad) {
   });
 }
 
-/* ---------------------------
-   DASHBOARD: animaciones y filtros
----------------------------- */
+// =============================
+// DASHBOARD: animaciones y filtros
+// =============================
 function initDashboardAnimations() {
   // Barras de progreso con data-progress (reservas por tipo)
   const progressBars = document.querySelectorAll(".progress-bar[data-progress]");
@@ -425,30 +438,29 @@ function initDashboardAnimations() {
 }
 
 function initDashboardFilters() {
-  // Filtro de estado en tabla de reservas
   const filtroEstado = document.getElementById("filtroEstado");
   const tablaReservas = document.getElementById("tablaReservas");
 
-  if (filtroEstado && tablaReservas) {
-    filtroEstado.addEventListener("change", () => {
-      const estadoFiltrar = filtroEstado.value;
-      const rows = tablaReservas.querySelectorAll("tbody tr");
+  if (!filtroEstado || !tablaReservas) return;
 
-      rows.forEach((row) => {
-        const estado = row.getAttribute("data-estado") || "";
-        if (!estadoFiltrar || estadoFiltrar === estado) {
-          row.classList.remove("d-none");
-        } else {
-          row.classList.add("d-none");
-        }
-      });
+  filtroEstado.addEventListener("change", () => {
+    const estadoFiltrar = filtroEstado.value;
+    const rows = tablaReservas.querySelectorAll("tbody tr");
+
+    rows.forEach((row) => {
+      const estado = row.getAttribute("data-estado") || "";
+      if (!estadoFiltrar || estadoFiltrar === estado) {
+        row.classList.remove("d-none");
+      } else {
+        row.classList.add("d-none");
+      }
     });
-  }
+  });
 }
 
-/* ---------------------------
-   LANDING: “fake login” y feedback de contacto
----------------------------- */
+// =============================
+// LANDING: fake login + feedback contacto
+// =============================
 function initFakeLogin() {
   const loginForm = document.getElementById("login-form");
   const feedback = document.getElementById("login-feedback");
