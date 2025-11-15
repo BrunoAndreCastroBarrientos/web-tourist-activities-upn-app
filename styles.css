@@ -245,6 +245,18 @@ button {
   align-items: center;
 }
 
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  color: #0f172a;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+
 .hero__text h1 {
   font-size: clamp(2.25rem, 3vw, 2.8rem);
   margin: 0 0 1rem;
@@ -260,6 +272,13 @@ button {
   color: var(--color-text-soft);
   max-width: 30rem;
   line-height: 1.6;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.7rem;
 }
 
 /* SEARCH CARD */
@@ -440,6 +459,65 @@ button {
   gap: 2.25rem;
 }
 
+/* NUEVOS GRIDS */
+
+.grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid--modules {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* CARDS INFORMACIÓN */
+
+.card-info {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.4rem 1.4rem;
+  box-shadow: var(--shadow-light);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.card-info h3 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
+}
+
+.card-info h4 {
+  margin-top: 1.1rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.card-info p {
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+}
+
+.card-info__list {
+  margin: 0.2rem 0 0.4rem;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+}
+
+.card-info__list--numbered {
+  list-style: decimal;
+}
+
+.card-info__note {
+  margin-top: 0.7rem;
+  font-size: 0.82rem;
+  color: #6b7280;
+}
+
 /* CARDS DESTINOS */
 
 .card-destino {
@@ -540,6 +618,33 @@ button {
 }
 
 /* CARD ACTIVIDADES */
+
+.card-module {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.2rem;
+  box-shadow: var(--shadow-light);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.card-module h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.card-module p {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+}
+
+.card-module ul {
+  margin: 0.1rem 0 0;
+  padding-left: 1rem;
+  font-size: 0.86rem;
+  color: var(--color-text-soft);
+}
 
 .card-actividad {
   background: white;
@@ -681,6 +786,74 @@ button {
   color: #6b7280;
 }
 
+/* MÉTRICAS */
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.metric-card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 1.3rem 1.2rem;
+  box-shadow: var(--shadow-light);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.metric-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.metric-card p {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+}
+
+.metric-card__target {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+/* ACCESIBILIDAD */
+
+.access-list {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+}
+
+/* FAQ */
+
+.faq {
+  display: grid;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.1rem;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  box-shadow: var(--shadow-light);
+}
+
+.faq-item h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.faq-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+}
+
 /* FORMULARIOS LOGIN & CONTACTO */
 
 .form-card {
@@ -772,6 +945,25 @@ button {
   border-color: #9ca3af;
 }
 
+/* DOCUMENTACIÓN (BOTONES NUEVAS PESTAÑAS) */
+
+.doc-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.doc-links__btn {
+  font-size: 0.9rem;
+}
+
+.doc-links__note {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #4b5563;
+}
+
 /* FOOTER */
 
 .footer {
@@ -855,12 +1047,22 @@ button {
   .grid--destinos,
   .grid--steps,
   .grid--actividades,
-  .grid--opiniones {
+  .grid--opiniones,
+  .grid--two,
+  .grid--three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid--modules {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .grid--login-contact {
     grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .footer__content {
@@ -913,7 +1115,17 @@ button {
   .grid--destinos,
   .grid--steps,
   .grid--actividades,
-  .grid--opiniones {
+  .grid--opiniones,
+  .grid--two,
+  .grid--three {
+    grid-template-columns: 1fr;
+  }
+
+  .grid--modules {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
     grid-template-columns: 1fr;
   }
 
@@ -933,6 +1145,14 @@ button {
     flex-direction: column;
     gap: 0.3rem;
   }
+
+  .hero__card {
+    display: none;
+  }
+
+  .hero__photo--secondary {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -942,13 +1162,5 @@ button {
 
   .hero__text h1 {
     font-size: 2rem;
-  }
-
-  .hero__card {
-    display: none;
-  }
-
-  .hero__photo--secondary {
-    display: none;
   }
 }
