@@ -1,1 +1,1 @@
-# web-tourist-activities-upn-app
+# Proyecto para el curso de INTERACCIÓN HUMANO COMPUTADOR, Bruno Andre Castro Barrientos
