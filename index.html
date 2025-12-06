@@ -1,436 +1,421 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>TurisBooking – Reserva actividades turísticas</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Plataforma conceptual para reservar actividades turísticas, tours y experiencias de forma rápida y segura." />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurisBooking UPN - Tu aventura comienza aquí</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-    <div class="container-fluid px-4">
-      <a class="navbar-brand d-flex align-items-center fw-semibold" href="#inicio">
-        <span class="logo-icon me-2">🌍</span>
-        <span>TurisBooking</span>
-      </a>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-globe-americas"></i> TurisBooking
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#destinos">Destinos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre-nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonios">Testimonios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                </ul>
+                
+                <div class="controles-accesibilidad ms-3">
+                    <button id="btn-tema" class="btn btn-sm btn-outline-secondary" title="Cambiar tema">
+                        <i class="bi bi-moon-fill"></i>
+                    </button>
+                    <button id="btn-aumentar" class="btn btn-sm btn-outline-secondary" title="Aumentar letra">
+                        A+
+                    </button>
+                    <button id="btn-disminuir" class="btn btn-sm btn-outline-secondary" title="Disminuir letra">
+                        A-
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <nav class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#destinos">Destinos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#como-funciona">Cómo funciona</a></li>
-          <li class="nav-item"><a class="nav-link" href="#actividades">Actividades</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboards</a></li>
-          <li class="nav-item ms-lg-3">
-            <a class="btn btn-primary rounded-pill px-3" href="#login">Iniciar sesión</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="inicio">
-    <!-- HERO / LANDING -->
-    <section class="hero py-5">
-      <div class="container">
-        <div class="row align-items-center g-4">
-          <div class="col-lg-6">
-            <h1 class="hero-title mb-3">
-              Reserva actividades turísticas <span>fácil, rápido y seguro</span>
-            </h1>
-            <p class="hero-subtitle mb-4">
-              Explora tours, experiencias gastronómicas y aventuras al aire libre en los mejores
-              destinos. Compara opciones y reserva en minutos.
+    <section id="inicio" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Descubre el mundo con nosotros</h1>
+            <p class="lead">
+                Viaja a los destinos más increíbles del planeta. Desde playas paradisíacas 
+                hasta montañas majestuosas, tenemos la aventura perfecta para ti.
             </p>
+            <a href="#destinos" class="btn btn-primary btn-lg">Ver Destinos</a>
+        </div>
+    </section>
 
-            <!-- BUSCADOR (con JS) -->
-            <div class="search-card p-3 p-md-4 shadow-lg rounded-4 bg-white">
-              <form id="search-form" class="row g-3" autocomplete="off">
+    <section id="destinos" class="seccion-destinos py-5">
+        <div class="container">
+            <h2 class="text-center mb-3">Nuestros Destinos Populares</h2>
+            <p class="text-center texto-intro mb-5">
+                Explora nuestra selección de los mejores lugares para visitar este año. 
+                Cada destino ha sido cuidadosamente elegido por nuestro equipo de expertos 
+                en viajes para garantizarte una experiencia inolvidable.
+            </p>
+            
+            <div class="filtros-destinos text-center mb-4">
+                <span class="me-2">Filtrar por:</span>
+                <button class="btn btn-filtro active" data-filtro="todos">Todos</button>
+                <button class="btn btn-filtro" data-filtro="playa">Playa</button>
+                <button class="btn btn-filtro" data-filtro="montaña">Montaña</button>
+                <button class="btn btn-filtro" data-filtro="ciudad">Ciudad</button>
+            </div>
+            
+            <p class="text-center text-muted mb-4">
+                Mostrando <span id="contador-destinos">6</span> destinos
+            </p>
+            
+            <div class="row g-4" id="grid-destinos">
+                
+                <div class="col-md-6 col-lg-4 destino-card" data-categoria="playa">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=600&h=400&fit=crop" 
+                             class="card-img-top" alt="Playa de Cancún">
+                        <div class="card-body">
+                            <span class="badge bg-info mb-2">Playa</span>
+                            <h5 class="card-title">Cancún, México</h5>
+                            <p class="card-text">
+                                Cancún es uno de los destinos turísticos más famosos del mundo. 
+                                Sus playas de arena blanca y aguas cristalinas del Caribe mexicano 
+                                te esperan. Disfruta de la zona hotelera, las ruinas mayas cercanas 
+                                y la vibrante vida nocturna que ofrece esta ciudad.
+                            </p>
+                            <p class="precio">Desde <strong>$899 USD</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 destino-card" data-categoria="montaña">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600&h=400&fit=crop" 
+                             class="card-img-top" alt="Alpes Suizos">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Montaña</span>
+                            <h5 class="card-title">Alpes Suizos</h5>
+                            <p class="card-text">
+                                Los Alpes Suizos ofrecen paisajes de ensueño durante todo el año. 
+                                En invierno puedes disfrutar del mejor esquí del mundo, mientras 
+                                que en verano los senderos de montaña te llevarán a través de 
+                                prados verdes y lagos de aguas turquesas impresionantes.
+                            </p>
+                            <p class="precio">Desde <strong>$1,499 USD</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 destino-card" data-categoria="ciudad">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop" 
+                             class="card-img-top" alt="Torre Eiffel en París">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-2">Ciudad</span>
+                            <h5 class="card-title">París, Francia</h5>
+                            <p class="card-text">
+                                La ciudad del amor te espera con los brazos abiertos. Visita la 
+                                icónica Torre Eiffel, pasea por los Campos Elíseos, descubre el 
+                                Louvre y disfruta de la exquisita gastronomía francesa en sus 
+                                cafés y restaurantes con encanto único.
+                            </p>
+                            <p class="precio">Desde <strong>$1,299 USD</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 destino-card" data-categoria="playa">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600&h=400&fit=crop" 
+                             class="card-img-top" alt="Bungalows en Maldivas">
+                        <div class="card-body">
+                            <span class="badge bg-info mb-2">Playa</span>
+                            <h5 class="card-title">Islas Maldivas</h5>
+                            <p class="card-text">
+                                El paraíso existe y se llama Maldivas. Este archipiélago en el 
+                                Océano Índico cuenta con más de 1,000 islas de coral, aguas 
+                                transparentes perfectas para buceo y los famosos bungalows 
+                                sobre el agua que harán tu estancia inolvidable.
+                            </p>
+                            <p class="precio">Desde <strong>$2,199 USD</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 destino-card" data-categoria="montaña">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=600&h=400&fit=crop" 
+                             class="card-img-top" alt="Machu Picchu">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Montaña</span>
+                            <h5 class="card-title">Machu Picchu, Perú</h5>
+                            <p class="card-text">
+                                Una de las siete maravillas del mundo moderno te espera en lo 
+                                alto de los Andes peruanos. Esta ciudadela inca del siglo XV 
+                                ofrece vistas espectaculares y una conexión única con la historia 
+                                y cultura de las civilizaciones antiguas de Sudamérica.
+                            </p>
+                            <p class="precio">Desde <strong>$1,099 USD</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 destino-card" data-categoria="ciudad">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&h=400&fit=crop" 
+                             class="card-img-top" alt="Tokio de noche">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-2">Ciudad</span>
+                            <h5 class="card-title">Tokio, Japón</h5>
+                            <p class="card-text">
+                                Tokio es una mezcla fascinante de lo ultramoderno y lo tradicional. 
+                                Desde los rascacielos de Shinjuku hasta los templos antiguos de 
+                                Asakusa, esta metrópolis ofrece experiencias únicas, tecnología 
+                                de vanguardia y una cultura gastronómica incomparable.
+                            </p>
+                            <p class="precio">Desde <strong>$1,699 USD</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-nosotros" class="seccion-nosotros py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=450&fit=crop" 
+                         alt="Viajeros felices" class="img-fluid rounded sombra-suave">
+                </div>
+                <div class="col-lg-6">
+                    <h2>Sobre Nosotros</h2>
+                    <p>
+                        En <strong>TurisBooking</strong> llevamos más de 15 años ayudando a personas 
+                        como tú a cumplir sus sueños de viajar. Somos una agencia de viajes fundada 
+                        por un grupo de amigos apasionados por conocer nuevas culturas y lugares.
+                    </p>
+                    <p>
+                        Nuestro equipo está formado por expertos viajeros que han visitado personalmente 
+                        cada uno de los destinos que ofrecemos. Esto nos permite darte recomendaciones 
+                        auténticas y consejos útiles basados en experiencias reales, no solo información 
+                        de catálogos turísticos.
+                    </p>
+                    <p>
+                        Creemos que viajar transforma vidas. No se trata solo de visitar lugares bonitos, 
+                        sino de conectar con otras personas, probar nuevos sabores, escuchar idiomas 
+                        diferentes y ver el mundo desde perspectivas que nunca imaginaste. Cada viaje 
+                        es una oportunidad de crecimiento personal.
+                    </p>
+                    
+                    <div class="row text-center mt-4 estadisticas">
+                        <div class="col-4">
+                            <h3 class="contador" data-objetivo="500">0</h3>
+                            <p>Destinos</p>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="contador" data-objetivo="15000">0</h3>
+                            <p>Clientes Felices</p>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="contador" data-objetivo="15">0</h3>
+                            <p>Años de Experiencia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion-galeria py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Momentos de Nuestros Viajeros</h2>
+            <p class="text-center texto-intro mb-5">
+                Estas son algunas de las increíbles fotos que nuestros clientes han compartido 
+                de sus aventuras. Cada imagen cuenta una historia de descubrimiento y felicidad.
+            </p>
+            
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300&h=300&fit=crop" 
+                         alt="Playa tropical" class="img-fluid rounded">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=300&h=300&fit=crop" 
+                         alt="Lago en montaña" class="img-fluid rounded">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=300&h=300&fit=crop" 
+                         alt="Bosque con niebla" class="img-fluid rounded">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=300&h=300&fit=crop" 
+                         alt="Ciudad europea" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="seccion-testimonios py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Lo Que Dicen Nuestros Clientes</h2>
+            
+            <div class="row g-4">
                 <div class="col-md-4">
-                  <label for="destino" class="form-label form-label-small">Destino</label>
-                  <input type="text" id="destino" name="destino" class="form-control"
-                         placeholder="Ej. Cusco, París, Cancún" />
+                    <div class="card testimonio-card h-100">
+                        <div class="card-body">
+                            <div class="estrellas mb-3">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="card-text">
+                                "Increíble experiencia en Cancún. Todo estuvo perfectamente organizado, 
+                                desde el vuelo hasta el hotel. El equipo de TurisBooking estuvo 
+                                disponible para cualquier duda durante todo el viaje. Definitivamente 
+                                volveré a reservar con ellos."
+                            </p>
+                            <div class="autor-testimonio mt-3">
+                                <strong>María González</strong>
+                                <span class="text-muted">- Viaje a Cancún</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                  <label for="fecha" class="form-label form-label-small">Fecha</label>
-                  <input type="date" id="fecha" name="fecha" class="form-control" />
+                
+                <div class="col-md-4">
+                    <div class="card testimonio-card h-100">
+                        <div class="card-body">
+                            <div class="estrellas mb-3">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                            <p class="card-text">
+                                "Viajamos a Japón con mi familia y fue la mejor decisión. Los guías 
+                                locales eran muy conocedores y amables. Visitamos lugares que no 
+                                habríamos encontrado por nuestra cuenta. Una experiencia cultural 
+                                que recordaremos por siempre."
+                            </p>
+                            <div class="autor-testimonio mt-3">
+                                <strong>Carlos Ramírez</strong>
+                                <span class="text-muted">- Viaje a Tokio</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                  <label for="tipo" class="form-label form-label-small">Actividad</label>
-                  <select id="tipo" name="tipo" class="form-select">
-                    <option value="">Cualquiera</option>
-                    <option value="citytour">City tour</option>
-                    <option value="aventura">Aventura</option>
-                    <option value="gastronomia">Gastronomía</option>
-                    <option value="cultural">Cultural</option>
-                  </select>
+                
+                <div class="col-md-4">
+                    <div class="card testimonio-card h-100">
+                        <div class="card-body">
+                            <div class="estrellas mb-3">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="card-text">
+                                "Mi luna de miel en Maldivas fue de película. Los bungalows sobre 
+                                el agua, las cenas románticas en la playa... todo superó nuestras 
+                                expectativas. Gracias TurisBooking por hacer este sueño realidad. 
+                                Se los recomiendo a todos."
+                            </p>
+                            <div class="autor-testimonio mt-3">
+                                <strong>Ana y Pedro López</strong>
+                                <span class="text-muted">- Luna de miel en Maldivas</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-2 d-grid">
-                  <label class="form-label form-label-small invisible">Buscar</label>
-                  <button type="submit" class="btn btn-gradient rounded-pill">
-                    Buscar
-                  </button>
-                </div>
-              </form>
-              <p class="small text-muted mt-2 mb-0">
-                🔍 Búsqueda de ejemplo: se listan actividades ficticias y puedes ir al detalle con “Ver detalles”.
-              </p>
-
-              <!-- Aquí JS renderiza tarjetas de resultados -->
-              <div id="search-results" class="mt-3"></div>
             </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="hero-visual position-relative">
-              <div class="hero-photo-main rounded-4 overflow-hidden shadow-lg">
-                <img src="https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                     alt="Personas disfrutando de un tour turístico" class="img-fluid" />
-              </div>
-              <div class="hero-photo-secondary rounded-4 overflow-hidden shadow-lg">
-                <img src="https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=900"
-                     alt="Paisaje turístico" class="img-fluid" />
-              </div>
-              <div class="hero-badge-card shadow rounded-4 bg-white">
-                <h6 class="mb-1 fw-semibold">+1,200 actividades</h6>
-                <p class="small mb-0 text-muted">Operadores verificados en destinos clave.</p>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- DESTINOS POPULARES -->
-    <section id="destinos" class="py-5 section-alt">
-      <div class="container">
-        <div class="section-header mb-4 text-center text-md-start">
-          <h2 class="section-title">Destinos populares</h2>
-          <p class="section-subtitle">
-            Algunos de los lugares favoritos de los viajeros en TurisBooking.
-          </p>
+    <section class="seccion-newsletter py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h3>Recibe Ofertas Exclusivas</h3>
+                    <p class="mb-4">
+                        Suscríbete a nuestro boletín y recibe las mejores promociones 
+                        y consejos de viaje directamente en tu correo.
+                    </p>
+                    <form id="form-newsletter" class="d-flex gap-2 flex-column flex-sm-row">
+                        <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
+                        <button type="submit" class="btn btn-primary">Suscribirse</button>
+                    </form>
+                    <p id="mensaje-newsletter" class="mt-3"></p>
+                </div>
+            </div>
         </div>
-
-        <div class="row g-4">
-          <div class="col-md-4">
-            <article class="card card-destino h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-              <div class="position-relative">
-                <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=900"
-                     class="card-img-top"
-                     alt="Vista de ciudad histórica en Cusco" />
-                <span class="badge destino-tag">Cultural</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title h5">Cusco, Perú</h3>
-                <p class="card-text text-muted">
-                  Capital histórica del imperio inca, con acceso a Machu Picchu y el Valle Sagrado.
-                </p>
-                <p class="small text-primary fw-semibold mb-0">+80 actividades disponibles</p>
-              </div>
-            </article>
-          </div>
-
-          <div class="col-md-4">
-            <article class="card card-destino h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-              <div class="position-relative">
-                <img src="https://images.pexels.com/photos/587441/pexels-photo-587441.jpeg?auto=compress&cs=tinysrgb&w=900"
-                     class="card-img-top"
-                     alt="Ciudad iluminada y río en París" />
-                <span class="badge destino-tag destino-tag-alt">City tour</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title h5">París, Francia</h3>
-                <p class="card-text text-muted">
-                  Recorridos guiados por la Torre Eiffel, el Louvre, Montmartre y más.
-                </p>
-                <p class="small text-primary fw-semibold mb-0">City tours día y noche</p>
-              </div>
-            </article>
-          </div>
-
-          <div class="col-md-4">
-            <article class="card card-destino h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-              <div class="position-relative">
-                <img src="https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=900"
-                     class="card-img-top"
-                     alt="Playa tropical en Cancún" />
-                <span class="badge destino-tag">Aventura</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title h5">Cancún, México</h3>
-                <p class="card-text text-muted">
-                  Snorkel, cenotes, parques temáticos y sitios arqueológicos en el Caribe.
-                </p>
-                <p class="small text-primary fw-semibold mb-0">Actividades para toda la familia</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- CÓMO FUNCIONA -->
-    <section id="como-funciona" class="py-5">
-      <div class="container">
-        <div class="section-header mb-4 text-center text-md-start">
-          <h2 class="section-title">¿Cómo funciona TurisBooking?</h2>
-          <p class="section-subtitle">
-            Un flujo simple pensado desde la experiencia del usuario.
-          </p>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-md-4">
-            <article class="step-card h-100">
-              <div class="step-icon">1</div>
-              <h3 class="h5 mb-2">Busca y filtra</h3>
-              <p class="mb-0 text-muted">
-                Elige tu destino y fecha. Aplica filtros de tipo de actividad, precio y duración.
-              </p>
-            </article>
-          </div>
-          <div class="col-md-4">
-            <article class="step-card h-100">
-              <div class="step-icon">2</div>
-              <h3 class="h5 mb-2">Compara y elige</h3>
-              <p class="mb-0 text-muted">
-                Revisa itinerarios, fotos reales, opiniones de otros viajeros y políticas de cancelación.
-              </p>
-            </article>
-          </div>
-          <div class="col-md-4">
-            <article class="step-card h-100">
-              <div class="step-icon">3</div>
-              <h3 class="h5 mb-2">Reserva y disfruta</h3>
-              <p class="mb-0 text-muted">
-                Completa tus datos, realiza el pago seguro y recibe confirmación al instante en tu correo.
-              </p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ACTIVIDADES DESTACADAS -->
-    <section id="actividades" class="py-5 section-alt">
-      <div class="container">
-        <div class="section-header mb-4 text-center text-md-start">
-          <h2 class="section-title">Actividades destacadas</h2>
-          <p class="section-subtitle">
-            Ejemplos de experiencias que podrían ofrecerse dentro de la plataforma.
-          </p>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-md-4">
-            <article class="card card-actividad h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-              <div class="position-relative">
-                <img src="https://images.pexels.com/photos/21014/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=900"
-                     class="card-img-top" alt="Tour guiado por ciudad" />
-                <span class="badge actividad-badge bg-success">Top ventas</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title h5">City tour histórico en Cusco</h3>
-                <p class="card-text text-muted">
-                  Recorrido guiado de medio día por los principales puntos históricos de la ciudad.
-                </p>
-                <div class="d-flex justify-content-between small text-muted mb-2">
-                  <span>⭐ 4.8 (320 reseñas)</span>
-                  <span>⏱ 4 horas</span>
+    <footer class="footer-principal py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5><i class="bi bi-globe-americas"></i> TurisBooking</h5>
+                    <p class="text-muted">
+                        Tu agencia de confianza para descubrir el mundo. 
+                        Viajes personalizados y experiencias únicas.
+                    </p>
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-semibold text-primary">Desde US$ 35</span>
-                  <a href="#" class="btn btn-outline-primary btn-sm rounded-pill"
-                     data-actividad-id="citytour-cusco">
-                    Ver detalles
-                  </a>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#destinos">Destinos</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
                 </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="col-md-4">
-            <article class="card card-actividad h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-              <div class="position-relative">
-                <img src="https://images.pexels.com/photos/460376/pexels-photo-460376.jpeg?auto=compress&cs=tinysrgb&w=900"
-                     class="card-img-top" alt="Actividad gastronómica" />
-                <span class="badge actividad-badge bg-info text-dark">Nuevo</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title h5">Ruta gastronómica nocturna</h3>
-                <p class="card-text text-muted">
-                  Degusta platos típicos acompañado de un guía local en un ambiente relajado.
-                </p>
-                <div class="d-flex justify-content-between small text-muted mb-2">
-                  <span>⭐ 4.7 (89 reseñas)</span>
-                  <span>⏱ 3 horas</span>
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="bi bi-envelope"></i> info@exploraviajes.com</li>
+                        <li><i class="bi bi-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="bi bi-geo-alt"></i> Ciudad de México, México</li>
+                    </ul>
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-semibold text-primary">Desde US$ 49</span>
-                  <a href="#" class="btn btn-outline-primary btn-sm rounded-pill"
-                     data-actividad-id="ruta-gastronomica">
-                    Ver detalles
-                  </a>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="col-md-4">
-            <article class="card card-actividad h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-              <div class="position-relative">
-                <img src="https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&w=900"
-                     class="card-img-top" alt="Trekking de aventura" />
-                <span class="badge actividad-badge bg-warning text-dark">Aventura</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title h5">Trekking a mirador panorámico</h3>
-                <p class="card-text text-muted">
-                  Excursión moderada ideal para quienes buscan naturaleza y vistas espectaculares.
-                </p>
-                <div class="d-flex justify-content-between small text-muted mb-2">
-                  <span>⭐ 4.9 (150 reseñas)</span>
-                  <span>⏱ Día completo</span>
-                </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-semibold text-primary">Desde US$ 65</span>
-                  <a href="#" class="btn btn-outline-primary btn-sm rounded-pill"
-                     data-actividad-id="trekking-mirador">
-                    Ver detalles
-                  </a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LOGIN & CONTACTO -->
-    <section id="login" class="py-5">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <div class="section-header mb-3">
-              <h2 class="section-title">Inicia sesión</h2>
-              <p class="section-subtitle">
-                Accede a tus reservas y panel de usuario. Formulario demostrativo solo frontend.
-              </p>
             </div>
-
-            <form class="card border-0 shadow-sm rounded-4 p-3 p-md-4" id="login-form">
-              <div class="mb-3">
-                <label for="login-email" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="login-email" placeholder="tucorreo@ejemplo.com" />
-              </div>
-              <div class="mb-3">
-                <label for="login-password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="login-password" placeholder="••••••••" />
-              </div>
-              <button type="submit" class="btn btn-gradient w-100 rounded-pill">Ingresar</button>
-              <p class="small text-muted mt-2 mb-0" id="login-feedback">
-                *En un proyecto real, este formulario se conectaría con un backend de autenticación.
-              </p>
-            </form>
-          </div>
-
-          <div class="col-lg-6" id="contacto">
-            <div class="section-header mb-3">
-              <h2 class="section-title">¿Tienes dudas?</h2>
-              <p class="section-subtitle">
-                Escríbenos y un miembro del equipo se pondrá en contacto contigo.
-              </p>
-            </div>
-
-            <form class="card border-0 shadow-sm rounded-4 p-3 p-md-4" id="contact-form">
-              <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre completo</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" />
-              </div>
-              <div class="mb-3">
-                <label for="mensaje" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="mensaje" rows="4" placeholder="Cuéntanos qué necesitas…"></textarea>
-              </div>
-              <button type="submit" class="btn btn-outline-secondary w-100 rounded-pill">
-                Enviar mensaje
-              </button>
-              <p class="small text-muted mt-2 mb-0" id="contact-feedback"></p>
-            </form>
-          </div>
+            <hr>
+            <p class="text-center text-muted mb-0">
+                &copy; 2024 TurisBooking. Proyecto universitario - Todos los derechos reservados.
+            </p>
         </div>
-      </div>
-    </section>
-  </main>
+    </footer>
 
-  <!-- FOOTER -->
-  <footer class="footer mt-4 pt-4 pb-3">
-    <div class="container">
-      <div class="row g-4 align-items-start">
-        <div class="col-md-5">
-          <div class="d-flex align-items-center mb-2">
-            <span class="logo-icon me-2">🌍</span>
-            <span class="fw-semibold">TurisBooking</span>
-          </div>
-          <p class="small text-muted mb-2">
-            Proyecto conceptual para demostrar una landing page de reservas de actividades turísticas
-            con HTML5, CSS, JavaScript y Bootstrap.
-          </p>
-        </div>
-        <div class="col-md-7">
-          <div class="row g-4 small">
-            <div class="col-4">
-              <h6 class="fw-semibold">Plataforma</h6>
-              <ul class="list-unstyled mb-0">
-                <li><a href="#destinos">Destinos</a></li>
-                <li><a href="#actividades">Actividades</a></li>
-              </ul>
-            </div>
-            <div class="col-4">
-              <h6 class="fw-semibold">Operadores</h6>
-              <ul class="list-unstyled mb-0">
-                <li><a href="dashboard.html">Dashboards</a></li>
-                <li><a href="#contacto">Afíliate</a></li>
-              </ul>
-            </div>
-            <div class="col-4">
-              <h6 class="fw-semibold">Soporte</h6>
-              <ul class="list-unstyled mb-0">
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#login">Acceder</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr class="border-secondary-subtle my-3" />
-      <div class="d-flex flex-column flex-md-row justify-content-between small text-muted">
-        <span>© 2025 TurisBooking. Uso académico / demostrativo.</span>
-        <span>Landing page + Dashboards · HTML5 · CSS · JS · Bootstrap</span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Bootstrap JS + JS propio -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/main.js"></script>
 </body>
 </html>
